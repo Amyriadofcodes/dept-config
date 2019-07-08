@@ -6,13 +6,13 @@ spring:
   profiles: dev
 eureka:
   instance:
-    hostname: eureka7001.com
+    hostname: eureka7001.com #eureka服务端的实例名称
   client:
-    register-with-eureka: false #当前eureka自己不注册
-    fetch-registry: false #不通过eureka获取注册信息
+    register-with-eureka: false     #false表示不向注册中心注册自己。
+    fetch-registry: false     #false表示自己端就是注册中心，我的职责就是维护服务实例，并不需要去检索服务
     service-url:
       defaultZone: http://eureka7001.com:7001/eureka/
----
+---  
 server:
   port: 7001
 spring:
@@ -20,10 +20,11 @@ spring:
     name: eureka-config
   profiles: test
 eureka:
-    instance:
-      hostname: eureka7001.com
-    client:
-      register-with-eureka: false #当前eureka自己不注册
-      fetch-registry: false #不通过eureka获取注册信息
-      service-url:
-        defaultZone: http://eureka7001.com:7001/eureka/
+  instance:
+    hostname: eureka7001.com #eureka服务端的实例名称
+  client:
+    register-with-eureka: false     #false表示不向注册中心注册自己。
+    fetch-registry: false     #false表示自己端就是注册中心，我的职责就是维护服务实例，并不需要去检索服务
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/
+
